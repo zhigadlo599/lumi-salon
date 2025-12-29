@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { titillium, josefin } from "./fonts";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumisalon.fi"),
   title: "Lumi Salon - Professional Hair Salon in Oulu",
   description:
     "Professional hair styling and beauty services in Oulu, Finland. Ammattimaiset hiustenmuotoilu- ja kauneuspalvelut Oulussa.",

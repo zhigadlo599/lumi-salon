@@ -3,7 +3,6 @@ import { Stats } from "@/app/components/Stats";
 import { getAboutStats, getAboutValues } from "@/lib/about";
 import { SectionProps } from "@/lib/header";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
 export const About = ({ messages }: SectionProps) => {
   const aboutValuesData = getAboutValues(messages);
@@ -60,12 +59,12 @@ export const About = ({ messages }: SectionProps) => {
           })}
         </ul>
       </div>
-      <div
-        className=" relative w-full mt-12 min-h-[18rem] 2xl:min-h-[25rem] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/images/salon.webp")' }}
-      >
-        <div className="overlay opacity-70"></div>
-      </div>
+          <div
+            className=" relative w-full mt-12 min-h-[18rem] 2xl:min-h-[25rem] bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url("/images/salon.webp")' }}
+          >
+            <div className="overlay opacity-70"></div>
+          </div>
     </section>
   );
 };

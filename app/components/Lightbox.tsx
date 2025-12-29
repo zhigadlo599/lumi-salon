@@ -17,6 +17,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
   const lightboxRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [direction, setDirection] = useState(1);
+  const [zoomed, setZoomed] = useState(false);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -107,6 +108,20 @@ export const Lightbox: React.FC<LightboxProps> = ({
           {imageCountText}
         </div>
 
+        {/* Zoom / Add button */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setZoomed((z) => !z);
+          }}
+          className="absolute right-16 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          aria-pressed={zoomed}
+          aria-label={zoomed ? "Exit zoom" : "Zoom image"}
+          title={zoomed ? "Exit zoom" : "Zoom image"}
+        >
+          <Add />
+        </button>
+
         {/* Main image container */}
         <div
           className="relative flex h-full w-full max-w-5xl flex-col items-center justify-center"
@@ -146,7 +161,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               initial="enter"
               animate="center"
               exit="exit"
-              className="relative h-[60vh] w-full"
+              className={`relative ${zoomed ? "h-[90vh]" : "h-[60vh]"} w-full`}
             >
               <Image
                 src={currentImage.src}

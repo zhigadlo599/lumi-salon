@@ -6,12 +6,7 @@ import { getTestimonials } from "@/lib/testimonials";
 import { TestimonialCard } from "@/app/components/TestimonialCard";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { useState } from "react";
-import {
-  ArrowBackIos,
-  ArrowForwardIos,
-  Reviews,
-  Star,
-} from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { SliderVariants } from "@/app/variants";
 
 export const Testimonial = ({ messages }: SectionProps) => {

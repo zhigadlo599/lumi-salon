@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const locale = resolvedParams.locale || "fi";
   const t = locale === "fi" ? fi : en;
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumisalon.fi"),
     title: `${t["hero.title"]} | Lumi Salon`,
     description: t["hero.subtitle"],
     openGraph: {

@@ -8,7 +8,7 @@ import {
   FormErrors,
   FormField as FormFieldType,
 } from "@/app/types/contact";
-import { Backspace, Message, Send } from "@mui/icons-material";
+import { Backspace, Message } from "@mui/icons-material";
 
 interface ContactFormProps {
   messages: Messages;
@@ -30,9 +30,7 @@ export const ContactForm = ({ messages }: ContactFormProps) => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  
 
   const formFields: Array<FormFieldType & { group?: "name" | "contact" }> = [
     {
@@ -167,7 +165,6 @@ export const ContactForm = ({ messages }: ContactFormProps) => {
       message: "",
     });
     setErrors({});
-    setSubmitStatus("idle");
   };
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -183,11 +180,10 @@ export const ContactForm = ({ messages }: ContactFormProps) => {
       return;
     }
     setIsSubmitting(true);
-    setSubmitStatus("idle");
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       console.log("Form submitted:", formData);
-      setSubmitStatus("success");
+      // submission success
       setFormData({
         firstName: "",
         lastName: "",
@@ -198,7 +194,7 @@ export const ContactForm = ({ messages }: ContactFormProps) => {
       setErrors({});
     } catch (error) {
       console.error("Form submission error:", error);
-      setSubmitStatus("error");
+      // submission error
     } finally {
       setIsSubmitting(false);
     }

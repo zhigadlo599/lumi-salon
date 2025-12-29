@@ -6,7 +6,6 @@ const nextConfig = {
     qualities: [75, 80, 85, 90],
   },
   poweredByHeader: false,
-  polyfills: false,
   experimental: {
     optimizePackageImports: ["framer-motion", "@mui/icons-material"],
   },
