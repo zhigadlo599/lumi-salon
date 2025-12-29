@@ -27,6 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.9",
+    "jscodeshift": "^17.3.0",
+    "react-codemod": "^5.4.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
